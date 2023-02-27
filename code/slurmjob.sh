@@ -12,6 +12,8 @@ module load stata/mp48/17
 # Set R tmp directory
 echo "TMP = $TMP" > .Renviron
 
+# R options to make sure it doesn't try to read .RData from this directory
+
 # generate data
 R --no-save --no-restore-data --quiet CMD BATCH 1-generate-datasets.R
 
