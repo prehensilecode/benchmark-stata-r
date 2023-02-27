@@ -6,3 +6,4 @@
 *.rds
 *.dta
 dataset/*
+*.Rout
