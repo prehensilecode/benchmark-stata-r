@@ -13,17 +13,17 @@ module load stata/mp48/17
 echo "TMP = $TMP" > .Renviron
 
 # generate data
-R --no-save --no-restore-data --quiet CMD BATCH 1-generate-datasets.r
+R --no-save --no-restore-data --quiet CMD BATCH 1-generate-datasets.R
 
 # do the computations in R
-R --no-save --no-restore-data --quiet CMD BATCH 2-benchmark-r.r
+R --no-save --no-restore-data --quiet CMD BATCH 2-benchmark-r.R
 
 # do the computations in Stata
 export STATATMP=$TMP
 stata-mp -s do 3-benchmark-stata.do
 
 # make the plots
-R --no-save --no-restore-data --quiet CMD BATCH 4-graph.r
+R --no-save --no-restore-data --quiet CMD BATCH 4-graph.R
 
 # cleanup
 /bin/rm -f .RData .Renviron
