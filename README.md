@@ -19,36 +19,41 @@ The Stata code in the file [3-benchmark-stata.do](code/3-benchmark-stata.do):
 
 The machine used for this benchmark has a 3.5 GHz Intel Core i5 (4 cores) with a SSD disk.
 
-The Stata version is Stata 16 MP with 2 cores.  The R session info is 
+The Stata version is Stata 17 MP with 48 cores.  The R session info is 
 
 ````R
-R version 3.6.0 (2019-04-26)
-Platform: x86_64-apple-darwin15.6.0 (64-bit)
-Running under: macOS High Sierra 10.13.6
+R version 4.2.2 (2022-10-31)
+Platform: x86_64-pc-linux-gnu (64-bit)
+Running under: Red Hat Enterprise Linux 8.1 (Ootpa)
 
 Matrix products: default
-BLAS:   /Library/Frameworks/R.framework/Versions/3.6/Resources/lib/libRblas.0.dylib
-LAPACK: /Library/Frameworks/R.framework/Versions/3.6/Resources/lib/libRlapack.dylib
+BLAS/LAPACK: /ifs/opt/intel/2020/compilers_and_libraries_2020.4.304/linux/mkl/lib/intel64_lin/libmkl_rt.so
 
 locale:
-[1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+ [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C
+ [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8
+ [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8
+ [7] LC_PAPER=en_US.UTF-8       LC_NAME=C
+ [9] LC_ADDRESS=C               LC_TELEPHONE=C
+[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C
 
 attached base packages:
-[1] stats     graphics  grDevices utils     datasets  methods   base     
+[1] stats     graphics  grDevices utils     datasets  methods   base
 
 other attached packages:
-[1] scales_1.0.0      ggplot2_3.2.1     stringr_1.4.0     fst_0.9.0        
-[5] statar_0.7.1      lfe_2.8-3         Matrix_1.2-17     tidyr_1.0.0      
-[9] data.table_1.12.2
+[1] fstcore_0.9.14    ggplot2_3.4.1     fst_0.9.8         statar_0.7.4
+[5] fixest_0.11.1     data.table_1.14.8
 
 loaded via a namespace (and not attached):
- [1] Rcpp_1.0.2         pillar_1.4.2       compiler_3.6.0     tools_3.6.0       
- [5] zeallot_0.1.0      lifecycle_0.1.0    tibble_2.1.3       gtable_0.3.0      
- [9] lattice_0.20-38    pkgconfig_2.0.3    rlang_0.4.0        parallel_3.6.0    
-[13] withr_2.1.2        dplyr_0.8.3        vctrs_0.2.0        grid_3.6.0        
-[17] tidyselect_0.2.5   glue_1.3.1         R6_2.4.0           Formula_1.2-3     
-[21] purrr_0.3.2        magrittr_1.5       ellipsis_0.3.0     backports_1.1.4   
-[25] matrixStats_0.55.0 assertthat_0.2.1   xtable_1.8-4       colorspace_1.4-1  
-[29] sandwich_2.5-1     stringi_1.4.3      lazyeval_0.2.2     munsell_0.5.0     
-[33] crayon_1.3.4       zoo_1.8-6    
+ [1] Rcpp_1.0.10         Formula_1.2-5       magrittr_2.0.3
+ [4] tidyselect_1.2.0    munsell_0.5.0       colorspace_2.1-0
+ [7] lattice_0.20-45     R6_2.5.1            rlang_1.0.6
+[10] fansi_1.0.4         dplyr_1.1.0         parallel_4.2.2
+[13] grid_4.2.2          gtable_0.3.1        nlme_3.1-160
+[16] utf8_1.2.3          cli_3.6.0           withr_2.5.0
+[19] tibble_3.1.8        lifecycle_1.0.3     numDeriv_2016.8-1.1
+[22] vctrs_0.5.2         glue_1.6.2          sandwich_3.0-2
+[25] compiler_4.2.2      dreamerr_1.2.3      pillar_1.8.1
+[28] generics_0.1.3      scales_1.2.1        pkgconfig_2.0.3
+[31] zoo_1.8-11
 ````
