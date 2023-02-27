@@ -11,8 +11,8 @@ This page compares the speed of R and Stata for typical data analysis. Instructi
 
 All the code below can be downloaded in the code folder in the repository.
 The dataset is generated in R using the file [1-generate-datasets.R](code/1-generate-datasets.R).
-The R code in the file [2-benchmark-r.R](code/2-benchmark-r.R):
-The Stata code in the file [3-benchmark-stata.do](code/3-benchmark-stata.do):
+The R code is in the file [2-benchmark-r.R](code/2-benchmark-r.R).
+The Stata code is in the file [3-benchmark-stata.do](code/3-benchmark-stata.do).
 
 
 ## Session Info 
