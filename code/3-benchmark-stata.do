@@ -19,13 +19,14 @@ program define Toc
 	timer off `n'
 end
 
+local datadir : env TMP
 
-import delimited using "~/statabenchmark/merge_string.csv", clear
+import delimited using "`datadir'/merge_string.csv", clear
 autorename
-save "~/statabenchmark/merge_string.dta", replace
+save "`datadir'/merge_string.dta", replace
 
-import delimited using "~/statabenchmark/merge_int.csv", clear
-save "~/statabenchmark/merge_int.dta", replace
+import delimited using "`datadir'/merge_int.csv", clear
+save "`datadir'/merge_int.dta", replace
 
 /***************************************************************************************************
 
@@ -38,16 +39,16 @@ timer clear
 local i = 0
 /* write and read */
 Tic, n(`++i')
-import delimited using "~/statabenchmark/1e7.csv", clear
+import delimited using "`datadir'/1e7.csv", clear
 Toc, n(`i')
 
 Tic, n(`++i')
-save "~/statabenchmark/1e7.dta", replace
+save "`datadir'/1e7.dta", replace
 Toc, n(`i')
 
 drop _all 
 Tic, n(`++i')
-use "~/statabenchmark/1e7.dta", clear
+use "`datadir'/1e7.dta", clear
 Toc, n(`i')
 
 /* sort  */
@@ -72,20 +73,20 @@ gdistinct id6
 Toc, n(`i')
 
 /* merge */
-use "~/statabenchmark/1e7.dta", clear
+use "`datadir'/1e7.dta", clear
 Tic, n(`++i')
-fmerge m:1 id1 id3 using "~/statabenchmark/merge_string.dta", keep(master matched) nogen
+fmerge m:1 id1 id3 using "`datadir'/merge_string.dta", keep(master matched) nogen
 Toc, n(`i')
 
-use "~/statabenchmark/1e7.dta", clear
+use "`datadir'/1e7.dta", clear
 Tic, n(`++i')
-fmerge m:1 id4 id6 using "~/statabenchmark/merge_int.dta", keep(master matched) nogen
+fmerge m:1 id4 id6 using "`datadir'/merge_int.dta", keep(master matched) nogen
 Toc, n(`i')
 
 /* append */
-use "~/statabenchmark/1e7.dta", clear
+use "`datadir'/1e7.dta", clear
 Tic, n(`++i')
-append using "~/statabenchmark/1e7.dta"
+append using "`datadir'/1e7.dta"
 Toc, n(`i')
 
 /* reshape */
@@ -103,7 +104,7 @@ greshape wide v_, i(id1 id2 id3) j(variable) string
 Toc, n(`i')
 
 /* recode */
-use "~/statabenchmark/1e7.dta", clear
+use "`datadir'/1e7.dta", clear
 Tic, n(`++i')
 gen v1_name = ""
 replace v1_name = "first" if v1 == 1
@@ -166,14 +167,14 @@ Tic, n(`++i')
 gcollapse (mean) v1 v2 (sum) v3,  by(id1) fast
 Toc, n(`i')
 
-use "~/statabenchmark/1e7.dta", clear
+use "`datadir'/1e7.dta", clear
 Tic, n(`++i')
 gcollapse (mean) v1 v2 (sum) v3,  by(id3) fast
 Toc, n(`i')
 
 
 /* regress */
-use "~/statabenchmark/1e7.dta", clear
+use "`datadir'/1e7.dta", clear
 keep if _n <= _N/2
 Tic, n(`++i')
 reg v3 v1 v2 id4 id5
@@ -196,7 +197,7 @@ Toc, n(`i')
 keep if _n <= 1000
 Tic, n(`++i')
 twoway (scatter v2 v1)
-graph export "~/statabenchmark/plot_stata.pdf", replace
+graph export "`datadir'/plot_stata.pdf", replace
 Toc, n(`i')
 
 drop _all
@@ -206,4 +207,4 @@ timer list
 forval j = 1/`i'{
 	replace result = r(t`j') if _n == `j'
 }
-outsheet using "~/statabenchmark/resultStata1e7.csv", replace
+outsheet using "`datadir'/resultStata1e7.csv", replace
