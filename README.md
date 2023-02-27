@@ -4,7 +4,7 @@
 This page compares the speed of R and Stata for typical data analysis. Instructions are runned on randomly generated datasets of with 10 millions observations. I try to use the fastest command available in each language. In particular, I use [gtools](https://github.com/mcaceresb/stata-gtools) in Stata. I use [data.table](https://github.com/Rdatatable/data.table), [fst](https://github.com/fstpackage/fst), and [fixest](https://github.com/lrberge/fixest/) in R.
 
 
-<img class = "img-responsive"  src="/output/1e7.png" />
+<img class = "img-responsive"  src="/output/1e7.svg" />
 
 
 ## Code
