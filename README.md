@@ -17,10 +17,11 @@ The Stata code in the file [3-benchmark-stata.do](code/3-benchmark-stata.do):
 
 ## Session Info 
 
-The machine used for this benchmark has a 3.5 GHz Intel Core i5 (4 cores) with a SSD disk.
+The machine used for this benchmark has two (2) 
+[Intel® Xeon® Platinum 8268 CPU @ 2.90GHz 24-core](https://www.intel.com/content/www/us/en/products/sku/192481/intel-xeon-platinum-8268-processor-35-75m-cache-2-90-ghz/specifications.html) writing and reading data from local SSD storage.
+
 
 The Stata version is Stata 17 MP with 48 cores.  The R session info is 
-
 ````R
 R version 4.2.2 (2022-10-31)
 Platform: x86_64-pc-linux-gnu (64-bit)
