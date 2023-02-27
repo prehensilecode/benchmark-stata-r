@@ -8,3 +8,4 @@
 dataset/*
 *.Rout
 *.smcl
+slurm-*.out
