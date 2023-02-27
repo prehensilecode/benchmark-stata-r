@@ -17,8 +17,12 @@ DT <- data.table(
   v2 =  sample(1e6, N, TRUE),                        # int in range [1,1e6]
   v3 =  sample(round(runif(100,max=100),4), N, TRUE) # numeric e.g. 23.5749
 )
-fwrite(DT, "~/statabenchmark/1e7.csv")
-fwrite(unique(DT[, list(id1, id3)]),"~/statabenchmark/merge_string.csv")
-fwrite(unique(DT[, list(id4, id6)]),"~/statabenchmark/merge_int.csv")
+
+# write data to a local disk rather than ~ which is NFS-mounted
+datadir <- Sys.getenv("TMP")
+
+fwrite(DT, file.path(datadir, "1e7.csv"))
+fwrite(unique(DT[, list(id1, id3)]), file.path(datadir, "merge_string.csv"))
+fwrite(unique(DT[, list(id4, id6)]), file.path(datadir, "merge_int.csv"))
 
 
