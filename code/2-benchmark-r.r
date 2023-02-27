@@ -23,7 +23,8 @@ datadir <- Sys.getenv("TMP")
 write.fst(fread(file.path(datadir, "merge_string.csv"), data.table = FALSE), file.path(datadir, "merge_string.fst"))
 write.fst(fread(file.path(datadir, "merge_int.csv"), data.table = FALSE), file.path(datadir, "merge_int.fst"))
 
-
+# session info
+sessionInfo()
 
 # define the time function
 time <- function(x){system.time(x)[3]}
