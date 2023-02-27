@@ -1,9 +1,9 @@
 # To run the script, download the relevant packages:
 # install.packages("data.table")
-# install.packages("fst")
-# install.packages("statar")
 # install.packages("fixest")
-# install.packages("ggplot")
+# install.packages("statar")
+# install.packages("fst")
+# install.packages("ggplot2")
 
 
 # loading packages
