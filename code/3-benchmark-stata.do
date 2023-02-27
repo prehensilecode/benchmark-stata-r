@@ -33,7 +33,11 @@ save "`datadir'/merge_int.dta", replace
 ***************************************************************************************************/
 
 /* benchmark */
-set processors 2
+local nc : env SLURM_CPUS_PER_TASK
+if strlen("`nc'")>0 {
+    local ncpus = `nc'
+    set processors `ncpus'
+}
 
 timer clear
 local i = 0
