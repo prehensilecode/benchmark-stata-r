@@ -15,8 +15,9 @@ library(ggplot2)
 
 
 # setting options
-options(mc.cores=48)
-setFixest_nthreads(48)
+ncores <- as.integer(Sys.getenv("SLURM_CPUS_PER_TASK"))
+options(mc.cores=ncores)
+setFixest_nthreads(ncores)
 
 # creating the file to merge with
 datadir <- Sys.getenv("TMP")
